@@ -1,41 +1,56 @@
+import csv
+
+pathToCompleteDataSet = '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/full-game.txt'
+pathToBallSeperatedDataSet = '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/BallSeperated'
+
 ##Firstly, Run below code
 ########################################################################################
 
-import csv
-with open('E:/FYP/full-game.csv', 'r') as fin, \
-        open('E:/FYP/BallSeperated/ball-4.csv', 'w', newline='') as fout4:
-    writer = csv.writer(fout4)
-    for row in csv.reader(fin):
-        if row[0] == '4':
-            writer.writerow(row)
+completeDataSet = open(pathToCompleteDataSet,'r')
+fout4 = open(pathToBallSeperatedDataSet+'/ball-4.csv', 'w')
+fout8 = open(pathToBallSeperatedDataSet+'/ball-8.csv', 'w')
+fout10 = open(pathToBallSeperatedDataSet+'/ball-10.csv', 'w')
+fout12 = open(pathToBallSeperatedDataSet+'/ball-12.csv', 'w')
 
-with open('E:/FYP/full-game.csv', 'r') as fin, \
-        open('E:/FYP/BallSeperated/ball-8.csv', 'w', newline='') as fout8:
-    writer = csv.writer(fout8)
-    for row in csv.reader(fin):
-        if row[0] == '8':
-            writer.writerow(row)
 
-with open('E:/FYP/full-game.csv', 'r') as fin, \
-        open('E:/FYP/BallSeperated/ball-10.csv', 'w', newline='') as fout10:
-    writer = csv.writer(fout10)
-    for row in csv.reader(fin):
-        if row[0] == '10':
-            writer.writerow(row)
+line = None
 
-with open('E:/FYP/full-game.csv', 'r') as fin, \
-        open('E:/FYP/BallSeperated/ball-12.csv', 'w', newline='') as fout12:
-    writer = csv.writer(fout12)
-    for row in csv.reader(fin):
-        if row[0] == '12':
-            writer.writerow(row)
+
+def fout4Write():
+    fout4.write(line)
+
+
+def fout8Write():
+    fout8.write(line)
+
+
+def fout10Write():
+    fout10.write(line)
+
+
+def fout12Write():
+    fout12.write(line)
+
+
+# map the inputs to the function blocks
+foutOptions = {4: fout4Write,
+               8: fout8Write,
+               10: fout10Write,
+               12: fout12Write,
+               }
+
+for line in completeDataSet:
+        try:
+            foutOptions[int(line.split(",")[0])]()
+        except:
+            continue
 
 print("Training dataset has been successfully divided into 4 balls")
 
 
 
 #################################################################################################
-#Comment out above code and run following as the second step
+# Comment out above code and run following as the second step
 #####################################################################################################
 
 
