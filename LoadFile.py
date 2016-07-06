@@ -12,25 +12,19 @@ fout8 = open(pathToBallSeperatedDataSet+'/ball-8.csv', 'w')
 fout10 = open(pathToBallSeperatedDataSet+'/ball-10.csv', 'w')
 fout12 = open(pathToBallSeperatedDataSet+'/ball-12.csv', 'w')
 
-
 line = None
-
 
 def fout4Write():
     fout4.write(line)
 
-
 def fout8Write():
     fout8.write(line)
-
 
 def fout10Write():
     fout10.write(line)
 
-
 def fout12Write():
     fout12.write(line)
-
 
 # map the inputs to the function blocks
 foutOptions = {4: fout4Write,
