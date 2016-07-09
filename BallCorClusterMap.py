@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 
 
 
-raw_data = open( 'D:/FYP/DEBS2013/BallData/test.csv', 'rU' ) #open train data
+raw_data = open( '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/BallSeperated/ball-4.csv', 'rU' ) #open train data
 
 dataset = np.loadtxt(raw_data, delimiter=",")
 print(dataset.shape)

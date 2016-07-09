@@ -8,7 +8,7 @@ xCordinates = []
 yCordinates = []
 zCordinates = []
 
-f = open( 'D:/FYP/DEBS2013/BallData/test.csv', 'rU' ) #open train data
+f = open( '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/BallSeperated/ball-4.csv', 'rU' ) #open train data
 for line in f:
     cells = line.split(",")
     timeStamp.append((cells[0]))
