@@ -17,6 +17,9 @@ end2 = 11233*10**12
 #strt = 12373*10**12   #Goal in the 28.17 minute
 #end = 12493*10**12
 
+strt3 = 11600*10**12   #Non goal period
+end3 = 11680*10**12
+
 f = open( 'D:/FYP-Developments/Dataset-Debs-2013/full-game/full-game.csv', 'rU' ) #open train data
 
 r1 = open('D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'w')
@@ -32,7 +35,7 @@ for line in f:
         r1.write(line)
         count1 = count1 + 1
 
-    elif int(cells[1]) >= strt2 and int(cells[1]) <= end2:
+    elif int(cells[1]) >= strt3 and int(cells[1]) <= end3:
         r2.write(str(count2))
         r2.write(str(","))
         r2.write(line)
