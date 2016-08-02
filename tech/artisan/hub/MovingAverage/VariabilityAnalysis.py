@@ -67,7 +67,7 @@ stdA = {'stdA': std7, 'TimeIndex': index}
 #Extracting data
 print("Data Extracting")
 
-output = open('D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/insights.csv', 'w')  # open train data
+output = open('D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/insights.csv', 'w')
 
 for itm in col7:
     if itm > std7:
@@ -108,7 +108,6 @@ for itm in col7:
         output.write(str(","))
 
         output.write(str(col13[count]))
-        output.write(str(","))
 
         output.write(str("\n"))
 
