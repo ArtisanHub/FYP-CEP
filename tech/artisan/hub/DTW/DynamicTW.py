@@ -4,24 +4,35 @@ import matplotlib.cm as cm
 x = []
 y = []
 
+indx = 0
+
 f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'rU' ) #open train data
 for line in f:
 
     cells = line.split(",")
     x.append((float)(cells[7]))
+    indx = indx + 1
+
+    if indx == 10000:
+        break
 
 f.close()
 
+indx = 0
 f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW2.csv', 'rU' ) #open train data
 for line in f:
 
     cells = line.split(",")
     y.append((float)(cells[7]))
+    indx = indx + 1
+
+    if indx == 10000:
+        break
 
 f.close()
 
 dist, cost, path = mlpy.dtw_std(x, y, dist_only=False)
-
+mlpy.dtw_subsequence
 print("############")
 print(dist)
 print("############")
