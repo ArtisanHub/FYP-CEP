@@ -1,7 +1,9 @@
 from sklearn import preprocessing
 import pandas as pd
+import numpy as np
 from matplotlib import style
 import matplotlib.pyplot as plt
+import matplotlib.mlab as mlab
 
 #col0 = []
 col1 = []
@@ -18,7 +20,8 @@ col11 = []
 col12 = []
 col13 = []
 
-f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/test.csv', 'rU' )
+salihPath = "/home/jawadhsr/Desktop/test.csv"
+f = open( salihPath, 'rU' )
 
 for line in f:
 
@@ -43,6 +46,7 @@ f.close()
 col3_scaled = preprocessing.scale(col3)
 col4_scaled = preprocessing.scale(col4)
 col5_scaled = preprocessing.scale(col5)
+
 
 print("-------------------")
 print(col3)
@@ -77,7 +81,7 @@ print("-------------------")
 style.use('fivethirtyeight')
 
 plt.figure("Column 3 - Scaled")
-plt.plot(col3_scaled, label="Data")
+plt.plot(col3,mlab.normpdf(col3,np.mean(col3),np.std(col3)), label="Data")
 plt.legend(loc='upper right')
 
 plt.figure("Column 4 - Scaled")
