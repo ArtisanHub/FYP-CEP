@@ -8,7 +8,7 @@ d = []
 e = []
 
 indx = 0
-dtw_data_limit = 90000
+dtw_data_limit = 50000
 f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'rU' ) #open train data
 for line in f:
 
