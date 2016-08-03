@@ -81,7 +81,7 @@ print("-------------------")
 style.use('fivethirtyeight')
 
 plt.figure("Column 3 - Scaled")
-plt.plot(col3,mlab.normpdf(col3,np.mean(col3),np.std(col3)), label="Data")
+plt.plot(col3_scaled,mlab.normpdf(col3_scaled,np.mean(col3_scaled),np.std(col3_scaled)), label="Data")
 plt.legend(loc='upper right')
 
 plt.figure("Column 4 - Scaled")
