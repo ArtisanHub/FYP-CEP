@@ -19,9 +19,87 @@ col11 = []
 col12 = []
 col13 = []
 
+multiplication_constant = 3
+
+temp = []
+sep = ","
+e_data_row = ""
+
+def extractData():
+    count = 0
+    for itm in col7:
+        if itm > std7:
+            e_data_row = str(col1[count]) + sep + str(col2[count]) + sep + str(col3[count]) + sep + str(
+                col4[count]) + sep + str(col5[count]) + sep + str(col6[count]) \
+                         + sep + str(col7[count]) + sep + str(col8[count]) + sep + str(col9[count]) + sep + str(
+                col10[count]) + sep + str(col11[count]) + sep + str(col12[count]) \
+                         + sep + str(col13[count]) + str("\n")
+
+            output.write(e_data_row)
+            temp.append(count)
+        count = count + 1
+
+    count = 0
+    for itm in col6:
+        if itm > std6:
+            if count not in temp:
+                e_data_row = str(col1[count]) + sep + str(col2[count]) + sep + str(col3[count]) + sep + str(
+                    col4[count]) + sep + str(col5[count]) + sep + str(col6[count]) \
+                             + sep + str(col7[count]) + sep + str(col8[count]) + sep + str(col9[count]) + sep + str(
+                    col10[count]) + sep + str(col11[count]) + sep + str(col12[count]) \
+                             + sep + str(col13[count]) + str("\n")
+
+                output.write(e_data_row)
+                temp.append(count)
+        count = count + 1
+
+    count = 0
+    for itm in col5:
+        if itm > std5:
+            if count not in temp:
+                e_data_row = str(col1[count]) + sep + str(col2[count]) + sep + str(col3[count]) + sep + str(
+                    col4[count]) + sep + str(col5[count]) + sep + str(col6[count]) \
+                             + sep + str(col7[count]) + sep + str(col8[count]) + sep + str(col9[count]) + sep + str(
+                    col10[count]) + sep + str(col11[count]) + sep + str(col12[count]) \
+                             + sep + str(col13[count]) + str("\n")
+
+                output.write(e_data_row)
+                temp.append(count)
+        count = count + 1
+
+    count = 0
+    for itm in col4:
+        if itm > std4:
+            if count not in temp:
+                e_data_row = str(col1[count]) + sep + str(col2[count]) + sep + str(col3[count]) + sep + str(
+                    col4[count]) + sep + str(col5[count]) + sep + str(col6[count]) \
+                             + sep + str(col7[count]) + sep + str(col8[count]) + sep + str(col9[count]) + sep + str(
+                    col10[count]) + sep + str(col11[count]) + sep + str(col12[count]) \
+                             + sep + str(col13[count]) + str("\n")
+
+                output.write(e_data_row)
+                temp.append(count)
+        count = count + 1
+
+    count = 0
+    for itm in col3:
+        if itm > std3:
+            if count not in temp:
+                e_data_row = str(col1[count]) + sep + str(col2[count]) + sep + str(col3[count]) + sep + str(
+                    col4[count]) + sep + str(col5[count]) + sep + str(col6[count]) \
+                             + sep + str(col7[count]) + sep + str(col8[count]) + sep + str(col9[count]) + sep + str(
+                    col10[count]) + sep + str(col11[count]) + sep + str(col12[count]) \
+                             + sep + str(col13[count]) + str("\n")
+
+                output.write(e_data_row)
+                temp.append(count)
+        count = count + 1
+
+    return
+
+
+
 count = 0
-
-
 f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/result.csv', 'rU' ) #open train data
 for line in f:
 
@@ -43,13 +121,19 @@ for line in f:
 
 f.close()
 
-std3 = 3*(stat.stdev(col3))
-std4 = 3*(stat.stdev(col4))
-std5 = 3*(stat.stdev(col5))
-std6 = 3*(stat.stdev(col6))
-std7 = 3*(stat.stdev(col7))
+#Obtaining absolute values of all the analytical data streams
+col3 = [abs(x) for x in col3]
+col4 = [abs(x) for x in col4]
+col5 = [abs(x) for x in col5]
 
-print(std7)
+#Calculating benchmark to obtain anomalies
+std3 = multiplication_constant*(stat.stdev(col3))
+std4 = multiplication_constant*(stat.stdev(col4))
+std5 = multiplication_constant*(stat.stdev(col5))
+std6 = multiplication_constant*(stat.stdev(col6))
+std7 = multiplication_constant*(stat.stdev(col7))
+
+#print(std7)
 
 
 detailsX = {'col3': col3, 'TimeIndex': index}
@@ -69,51 +153,11 @@ print("Data Extracting")
 
 output = open('D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/insights.csv', 'w')
 
-for itm in col7:
-    if itm > std7:
-        output.write(str(col1[count]))
-        output.write(str(","))
-
-        output.write(str(col2[count]))
-        output.write(str(","))
-
-        output.write(str(col3[count]))
-        output.write(str(","))
-
-        output.write(str(col4[count]))
-        output.write(str(","))
-
-        output.write(str(col5[count]))
-        output.write(str(","))
-
-        output.write(str(col6[count]))
-        output.write(str(","))
-
-        output.write(str(col7[count]))
-        output.write(str(","))
-
-        output.write(str(col8[count]))
-        output.write(str(","))
-
-        output.write(str(col9[count]))
-        output.write(str(","))
-
-        output.write(str(col10[count]))
-        output.write(str(","))
-
-        output.write(str(col11[count]))
-        output.write(str(","))
-
-        output.write(str(col12[count]))
-        output.write(str(","))
-
-        output.write(str(col13[count]))
-
-        output.write(str("\n"))
-
-    count = count + 1
+extractData()
 
 output.close()
+temp.clear()
+
 print("Data Extracting Done")
 
 
@@ -175,21 +219,21 @@ style.use('fivethirtyeight')
 plt.figure("column 3")
 plt.plot(dfX, label="Data")
 plt.plot(avgX, label="RM")
-#plt.plot(stdX, label="SD")
+plt.plot(stdX, label="SD")
 
 plt.legend(loc='upper right')
 
 plt.figure("column 4")
 plt.plot(dfY, label="Data")
 plt.plot(avgY, label="RM")
-#plt.plot(stdY, label="SD")
+plt.plot(stdY, label="SD")
 
 plt.legend(loc='upper right')
 
 plt.figure("column 5")
 plt.plot(dfZ, label="Data")
 plt.plot(avgZ, label="RM")
-#plt.plot(stdZ, label="SD")
+plt.plot(stdZ, label="SD")
 
 plt.legend(loc='upper right')
 
