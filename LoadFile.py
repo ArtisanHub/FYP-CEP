@@ -3,14 +3,17 @@ import os
 
 pathToCompleteDataSet = '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/full-game.txt'
 pathToBallSeperatedDataSet = '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/BallSeperated'
-if not os.path.isdir(pathToBallSeperatedDataSet):
-   os.makedirs(pathToBallSeperatedDataSet)
 
-completeDataSet = open(pathToCompleteDataSet,'r')
-fout4 = open(pathToBallSeperatedDataSet+'/ball-4.csv', 'w')
-fout8 = open(pathToBallSeperatedDataSet+'/ball-8.csv', 'w')
-fout10 = open(pathToBallSeperatedDataSet+'/ball-10.csv', 'w')
-fout12 = open(pathToBallSeperatedDataSet+'/ball-12.csv', 'w')
+pathofSAlih = '/home/jawadhsr/Desktop/FYP/full-game'
+pathtoSeparateSalih = '/home/jawadhsr/Desktop/FYP/Separated'
+if not os.path.isdir(pathtoSeparateSalih):
+   os.makedirs(pathtoSeparateSalih)
+
+completeDataSet = open(pathofSAlih,'r')
+fout4 = open(pathtoSeparateSalih+'/ball-4.csv', 'w')
+fout8 = open(pathtoSeparateSalih+'/ball-8.csv', 'w')
+fout10 = open(pathtoSeparateSalih+'/ball-10.csv', 'w')
+fout12 = open(pathtoSeparateSalih+'/ball-12.csv', 'w')
 
 row =None
 csvWriter = None
