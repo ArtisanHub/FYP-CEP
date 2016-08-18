@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 
 
 
-raw_data = open( '/home/rnavagamuwa/Documents/CSE/FYP/Datasets/DEBS-2013-SoccerField/BallSeperated/ball-4.csv', 'rU' ) #open train data
+raw_data = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/insights.csv', 'rU' ) #open train data
 
 dataset = np.loadtxt(raw_data, delimiter=",")
 print(dataset.shape)
@@ -20,6 +20,8 @@ ax = Axes3D(fig, elev=-150, azim=1000)
 X_reduced = PCA(n_components=4).fit_transform(dataset.data)
 ax.scatter(X_reduced[:, 1], X_reduced[:, 2], X_reduced[:, 3], c=Y,
            cmap=plt.cm.Paired)
+
+print(X_reduced[:,2])
 
 ax.set_title("Ball Coordinates Cluster Map")
 ax.set_xlabel("X-Coordinate")
