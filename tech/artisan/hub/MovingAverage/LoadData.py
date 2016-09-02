@@ -19,14 +19,13 @@ end3 = 12133*10**12
 strt4 = 12433*10**12   #Goal in the 28.16 minute
 end4 = 12493*10**12
 
-f = open('D:/FYP-Developments/full-game/SubSampledData.txt', 'rU') #open train data
+f = open('D:/FYP-Developments/Dataset-Debs-2013/full-game/full-game.csv', 'rU') #open train data
 r = open('D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/result.csv', 'w')
 
 #preping the analysis file with the respective window data
 for line in f:
     cells = line.split(",")
-    if ((int(cells[1]) >= strt1 and int(cells[1]) <= end1) or (int(cells[1]) >= strt2 and int(cells[1]) <= end2) or
-       (int(cells[1]) >= strt3 and int(cells[1]) <= end3) or (int(cells[1]) >= strt4 and int(cells[1]) <= end4)):
+    if ((int(cells[1]) >= strt1 and int(cells[1]) <= end1)):
         r.write(str(count))
         r.write(str(","))
         r.write(line)
