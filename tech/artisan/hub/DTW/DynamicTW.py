@@ -1,19 +1,16 @@
 import mlpy
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-a = [1,2,3,4]
-b = [5,3,5,2]
-# c = []
-# d = []
-# e = []
+a = []
+b = []
 
 indx = 0
 dtw_data_limit = 50000
-f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'rU' ) #open train data
+f = open( '', 'rU' ) #Provide dataset 1 file path for comparison
 for line in f:
 
     cells = line.split(",")
-    a.append((float)(cells[7]))
+    a.append((float)(cells["X"])) #X = Provide the respective column of the dataset which needs to be analysed
     indx = indx + 1
 
     if indx == dtw_data_limit:
@@ -22,58 +19,17 @@ for line in f:
 f.close()
 
 indx = 0
-f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW2.csv', 'rU' ) #open train data
+f = open( '', 'rU' ) #Provide dataset 2 file path for comparison
 for line in f:
 
     cells = line.split(",")
-    b.append((float)(cells[7]))
+    b.append((float)(cells["X"])) #X = Provide the respective column of the dataset which needs to be analysed
     indx = indx + 1
 
     if indx == dtw_data_limit:
         break
 
 f.close()
-
-# indx = 0
-# f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW3.csv', 'rU' ) #open train data
-# for line in f:
-#
-#     cells = line.split(",")
-#     c.append((float)(cells[7]))
-#     indx = indx + 1
-#
-#     if indx == dtw_data_limit:
-#         break
-#
-# f.close()
-#
-# indx = 0
-# f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW4.csv', 'rU' ) #open train data
-# for line in f:
-#
-#     cells = line.split(",")
-#     d.append((float)(cells[7]))
-#     indx = indx + 1
-#
-#     if indx == dtw_data_limit:
-#         break
-#
-# f.close()
-#
-# indx = 0
-# f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW5.csv', 'rU' ) #open train data
-# for line in f:
-#
-#     cells = line.split(",")
-#     e.append((float)(cells[7]))
-#     indx = indx + 1
-#
-#     if indx == dtw_data_limit:
-#         break
-#
-# f.close()
-
-#Start - Distance Calculation
 
 dist, cost, path = mlpy.dtw_std(a, b, dist_only=False)
 

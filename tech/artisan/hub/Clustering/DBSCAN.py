@@ -2,11 +2,11 @@ from sklearn.cluster import DBSCAN
 from sklearn import preprocessing
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
-data = pd.read_csv("D:/FYP-Developments/Dataset-Kaggale/trainNew.csv")
 
-data = data[["f", "k"]]
+data = pd.read_csv("") #Input datafile
+
+data = data[["f", "k"]] #Provide the respective column ids
 print(data)
 data = data.as_matrix().astype("float32", copy = False)
 
