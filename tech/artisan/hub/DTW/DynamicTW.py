@@ -7,32 +7,32 @@ b = [5,3,5,2]
 # d = []
 # e = []
 
-# indx = 0
-# dtw_data_limit = 50000
-# f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'rU' ) #open train data
-# for line in f:
-#
-#     cells = line.split(",")
-#     a.append((float)(cells[7]))
-#     indx = indx + 1
-#
-#     if indx == dtw_data_limit:
-#         break
-#
-# f.close()
-#
-# indx = 0
-# f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW2.csv', 'rU' ) #open train data
-# for line in f:
-#
-#     cells = line.split(",")
-#     b.append((float)(cells[7]))
-#     indx = indx + 1
-#
-#     if indx == dtw_data_limit:
-#         break
-#
-# f.close()
+indx = 0
+dtw_data_limit = 50000
+f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW1.csv', 'rU' ) #open train data
+for line in f:
+
+    cells = line.split(",")
+    a.append((float)(cells[7]))
+    indx = indx + 1
+
+    if indx == dtw_data_limit:
+        break
+
+f.close()
+
+indx = 0
+f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW2.csv', 'rU' ) #open train data
+for line in f:
+
+    cells = line.split(",")
+    b.append((float)(cells[7]))
+    indx = indx + 1
+
+    if indx == dtw_data_limit:
+        break
+
+f.close()
 
 # indx = 0
 # f = open( 'D:/FYP-Developments/Dataset-Debs-2013/MovingAverageData/resultDTW3.csv', 'rU' ) #open train data
@@ -73,12 +73,17 @@ b = [5,3,5,2]
 #
 # f.close()
 
+#Start - Distance Calculation
+
 dist, cost, path = mlpy.dtw_std(a, b, dist_only=False)
 
 print("Distance between a and b temporal sequneces")
 print(dist)
 print("############")
 
+#End - Distance Calculation
+
+#Start - Plot
 
 plt.figure("Two temporal sequnences")
 plt.plot(a)
@@ -91,6 +96,7 @@ plot2 = plt.plot(path[0], path[1], 'w')
 xlim = ax.set_xlim((-0.5, cost.shape[0]-0.5))
 ylim = ax.set_ylim((-0.5, cost.shape[1]-0.5))
 
+#End - Plot
 
 plt.show()
 

@@ -10,28 +10,35 @@ data = data[["f", "k"]]
 print(data)
 data = data.as_matrix().astype("float32", copy = False)
 
+#start - Scaling to unit variance
+
 stscaler = preprocessing.StandardScaler().fit(data)
 data = stscaler.transform(data)
 
-#print(data)
+#end - Scaling to unit variance
+
+
+#Start - Clustering
+
+#Start - Initial Gobal Parameter setting
 
 dbsc = DBSCAN(eps = .5, min_samples = 15).fit(data)
 
+#End - Initial Gobal Parameter setting
+
+
 labels = dbsc.labels_
-#print(labels)
 core_samples = np.zeros_like(labels, dtype = bool)
-#print(core_samples)
 core_samples[dbsc.core_sample_indices_] = True
-#print(dbsc.core_sample_indices_)
 
 print(data)
 print("###########")
 
 n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
 
-
+#End - Clustering
 ##############################################################################
-# Plot result
+#Start - Plot result
 import matplotlib.pyplot as plt
 
 # Black removed and is used for noise instead.
@@ -59,8 +66,8 @@ for k, col in zip(unique_labels, colors):
 #plt.title('Estimated number of clusters: %d' % n_clusters_)
 plt.show()
 
-# plt.plot(dbsc.components_)
-# plt.show()
+#End - Plot result
+
 
 
 
